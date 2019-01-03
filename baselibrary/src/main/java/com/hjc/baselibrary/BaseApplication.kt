@@ -36,7 +36,7 @@ open class BaseApplication : Application() {
         val formatStrategy = PrettyFormatStrategy.newBuilder()
             .showThreadInfo(false)  // 隐藏线程信息 默认：显示
             .methodCount(1)         // 决定打印多少行（每一行代表一个方法）默认：2
-            .methodOffset(5)        // (Optional) Hides internal method calls up to offset. Default 5
+            .methodOffset(0)        // (Optional) Hides internal method calls up to offset. Default 0
             .tag("hjc")   // (Optional) Global tag for every log. Default PRETTY_LOGGER
             .build()
         Logger.addLogAdapter(object : AndroidLogAdapter(formatStrategy) {

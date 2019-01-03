@@ -14,7 +14,7 @@ class ProjectModel {
     /**
      * 获取项目信息
      */
-    fun getProjectData(): Observable<ArrayList<ProjectBean>> {
+    fun getProjectData(): Observable<ProjectBean> {
         return RetrofitManager.service.getProjectList(10)
                 .compose(SchedulerUtils.ioToMain())
     }

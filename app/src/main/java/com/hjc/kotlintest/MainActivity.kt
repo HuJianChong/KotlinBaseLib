@@ -27,11 +27,12 @@ class MainActivity : BaseActivity(), ProjectContract.View {
         mPresenter.getProjectList()
     }
 
-    override fun showProjectList(projectList: ArrayList<ProjectBean>) {
-        Logger.d(projectList)
+    override fun showProjectList(projectBean: ProjectBean) {
+        Logger.d(projectBean)
     }
 
     override fun showError(errorMsg: String, errorCode: Int) {
+        Logger.d(errorMsg)
         mLayoutStatusView?.showError()
     }
 

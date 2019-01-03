@@ -15,7 +15,7 @@ interface ProjectContract {
         /**
          * 显示项目的信息
          */
-        fun showProjectList(projectList: ArrayList<ProjectBean>)
+        fun showProjectList(projectBean: ProjectBean)
 
         /**
          * 显示错误信息
