@@ -32,8 +32,6 @@ abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCal
         initView()
         start()
         initListener()
-
-
     }
 
     private fun initListener() {
