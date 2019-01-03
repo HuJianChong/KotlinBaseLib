@@ -1,4 +1,4 @@
-package com.hjc.kotlintest.scheduler
+package com.hjc.baselibrary.scheduler
 
 import io.reactivex.*
 import org.reactivestreams.Publisher

@@ -1,6 +1,7 @@
 package com.hjc.kotlintest.net
 
 import com.hjc.baselibrary.net.BaseRetrofitManager
+import com.hjc.kotlintest.common.Const
 
 /**
  * @author hjc
@@ -12,5 +13,5 @@ object RetrofitManager : BaseRetrofitManager() {
         getRetrofit().create(ApiService::class.java)
     }
 
-    override fun getBaseUrl(): String = "http://gank.io/api/"
+    override fun getBaseUrl(): String = Const.BASE_URL
 }

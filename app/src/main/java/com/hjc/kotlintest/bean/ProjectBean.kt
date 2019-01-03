@@ -1,4 +1,4 @@
-package com.hjc.kotlintest.mvp.model.bean
+package com.hjc.kotlintest.bean
 
 /**
  * @author hjc
@@ -11,7 +11,7 @@ class ProjectBean : BaseResultBean<ArrayList<ProjectBean.Data>>() {
         val _id: String,
         val createdAt: String,
         val desc: String,
-        val images: ArrayList<String>,
+        val images: ArrayList<String>?,
         val publishedAt: String,
         val source: String,
         val type: String,

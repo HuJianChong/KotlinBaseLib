@@ -1,4 +1,4 @@
-package com.hjc.kotlintest.scheduler
+package com.hjc.baselibrary.scheduler
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers

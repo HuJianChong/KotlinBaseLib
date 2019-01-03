@@ -1,9 +1,9 @@
-package com.hjc.kotlintest.mvp.presenter
+package com.hjc.kotlintest.home.mvp.presenter
 
 import com.hazz.kotlinmvp.net.exception.ExceptionHandle
 import com.hjc.baselibrary.base.BasePresenter
-import com.hjc.kotlintest.mvp.contract.ProjectContract
-import com.hjc.kotlintest.mvp.model.ProjectModel
+import com.hjc.kotlintest.home.mvp.contract.ProjectContract
+import com.hjc.kotlintest.home.mvp.model.ProjectModel
 
 /**
  * Created by hjc

@@ -1,8 +1,8 @@
-package com.hjc.kotlintest.mvp.contract
+package com.hjc.kotlintest.home.mvp.contract
 
 import com.hjc.baselibrary.base.IBaseView
 import com.hjc.baselibrary.base.IPresenter
-import com.hjc.kotlintest.mvp.model.bean.ProjectBean
+import com.hjc.kotlintest.bean.ProjectBean
 
 
 /**

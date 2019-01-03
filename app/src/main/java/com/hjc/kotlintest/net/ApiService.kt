@@ -1,6 +1,6 @@
 package com.hjc.kotlintest.net
 
-import com.hjc.kotlintest.mvp.model.bean.ProjectBean
+import com.hjc.kotlintest.bean.ProjectBean
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path

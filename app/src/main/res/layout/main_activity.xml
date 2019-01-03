@@ -9,10 +9,10 @@
     app:errorView="@layout/layout_error_view"
     app:loadingView="@layout/layout_loading_view"
     app:noNetworkView="@layout/layout_network_view"
-    tools:context=".MainActivity">
+    tools:context=".home.MainActivity">
 
-    <ImageView
-        android:id="@+id/img"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

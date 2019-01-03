@@ -1,7 +1,7 @@
-package com.hjc.kotlintest.mvp.model
+package com.hjc.kotlintest.home.mvp.model
 
-import com.hjc.kotlintest.scheduler.SchedulerUtils
-import com.hjc.kotlintest.mvp.model.bean.ProjectBean
+import com.hjc.baselibrary.scheduler.SchedulerUtils
+import com.hjc.kotlintest.bean.ProjectBean
 import com.hjc.kotlintest.net.RetrofitManager
 import io.reactivex.Observable
 

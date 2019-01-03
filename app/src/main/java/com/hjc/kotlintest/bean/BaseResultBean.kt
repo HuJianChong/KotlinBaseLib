@@ -1,4 +1,6 @@
-package com.hjc.kotlintest.mvp.model.bean
+package com.hjc.kotlintest.bean
+
+import com.google.gson.annotations.SerializedName
 
 /**
  * @author hjc
@@ -8,9 +10,10 @@ package com.hjc.kotlintest.mvp.model.bean
 open class BaseResultBean<T> {
     val code: Int = 0
     val error: Boolean = false
-    val results: T? = null
+    @SerializedName("results")
+    val data: T? = null
 
     override fun toString(): String {
-        return "BaseResultBean(code=$code, error=$error, results=$results)"
+        return "BaseResultBean(code=$code, error=$error, data=$data)"
     }
 }
