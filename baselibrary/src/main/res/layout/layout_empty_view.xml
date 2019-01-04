@@ -16,6 +16,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/empty_view_hint"
-        android:textColor="@color/color_gray" />
+        android:textColor="@color/gray" />
 
 </LinearLayout>

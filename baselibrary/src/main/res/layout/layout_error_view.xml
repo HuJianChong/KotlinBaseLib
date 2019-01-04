@@ -16,6 +16,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/sv_data_error"
-        android:textColor="@color/color_gray" />
+        android:textColor="@color/gray" />
 
 </LinearLayout>

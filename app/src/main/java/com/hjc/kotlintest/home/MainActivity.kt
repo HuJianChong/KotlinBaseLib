@@ -8,6 +8,7 @@ import com.hjc.kotlintest.bean.ProjectBean
 import com.hjc.kotlintest.home.adapter.ProjectAdapter
 import com.hjc.kotlintest.home.mvp.contract.ProjectContract
 import com.hjc.kotlintest.home.mvp.presenter.ProjectPresenter
+import com.hjc.kotlintest.utils.DividerUtils
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.main_activity.*
 
@@ -28,6 +29,7 @@ class MainActivity : BaseActivity(), ProjectContract.View {
         mLayoutStatusView = statusView
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = mAdapter
+        recyclerView.addItemDecoration(DividerUtils.getDefaultDivider(this))
     }
 
     override fun start() {

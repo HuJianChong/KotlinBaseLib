@@ -32,4 +32,6 @@ dependencies {
     implementation project(':baselibrary')
     //recyclerView adapter
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
+    //recyclerView divider
+    implementation 'com.yqritc:recyclerview-flexibledivider:1.4.0'
 }
