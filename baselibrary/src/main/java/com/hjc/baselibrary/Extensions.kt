@@ -21,13 +21,3 @@ fun Context.showToast(content: String): Toast {
     toast.show()
     return toast
 }
-
-fun View.dip2px(dipValue: Float): Int {
-    val scale = this.resources.displayMetrics.density
-    return (dipValue * scale + 0.5f).toInt()
-}
-
-fun View.px2dip(pxValue: Float): Int {
-    val scale = this.resources.displayMetrics.density
-    return (pxValue / scale + 0.5f).toInt()
-}

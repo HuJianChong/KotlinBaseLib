@@ -16,7 +16,7 @@ class ProjectPresenter : BasePresenter<ProjectContract.View>(), ProjectContract.
     }
 
     /**
-     * 获取分类
+     * 获取项目
      */
     override fun getProjectList() {
         checkViewAttached()
