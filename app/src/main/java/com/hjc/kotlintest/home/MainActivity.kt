@@ -5,18 +5,18 @@ import com.hjc.baselibrary.base.BaseActivity
 import com.hjc.baselibrary.utils.StatusBarUtil
 import com.hjc.kotlintest.R
 import com.hjc.kotlintest.bean.ProjectBean
-import com.hjc.kotlintest.common.isShow
 import com.hjc.kotlintest.home.adapter.ProjectAdapter
 import com.hjc.kotlintest.home.mvp.contract.ProjectContract
 import com.hjc.kotlintest.home.mvp.presenter.ProjectPresenter
 import com.hjc.kotlintest.utils.DividerUtils
-import com.orhanobut.logger.Logger
+import com.hjc.kotlintest.utils.MultiStatusViewUtils
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : BaseActivity(), ProjectContract.View {
     private val mPresenter by lazy { ProjectPresenter() }
     private val mAdapter by lazy { ProjectAdapter(R.layout.main_project_item, ArrayList()) }
     private var mIsRefresh = true
+    private lateinit var multiStatusViewUtils: MultiStatusViewUtils
 
     override fun layoutId(): Int = R.layout.main_activity
 
@@ -28,7 +28,8 @@ class MainActivity : BaseActivity(), ProjectContract.View {
         StatusBarUtil.darkMode(this)
         StatusBarUtil.setPaddingSmart(this, statusView)
 
-        mLayoutStatusView = statusView
+        mMultiStatusView = statusView
+        multiStatusViewUtils = MultiStatusViewUtils(mMultiStatusView!!)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = mAdapter
         recyclerView.addItemDecoration(DividerUtils.getDefaultDivider(this))
@@ -48,41 +49,23 @@ class MainActivity : BaseActivity(), ProjectContract.View {
     }
 
     override fun showProjectList(projectBean: ProjectBean) {
-        if (projectBean.data == null) {
-            return
-        }
+        multiStatusViewUtils.handleResult(projectBean.data, mIsRefresh, refreshLayout)
         if (mIsRefresh) {
             mAdapter.setNewData(projectBean.data)
-        } else {
+        } else if (projectBean.data != null) {
             mAdapter.addData(projectBean.data)
         }
     }
 
     override fun showError(errorMsg: String, errorCode: Int) {
-        Logger.d(errorMsg)
-        mLayoutStatusView?.showError()
+        multiStatusViewUtils.showError()
     }
 
     override fun showLoading() {
-        mLayoutStatusView?.apply {
-            if (!isShow()) {
-                showLoading()
-            }
-        }
+        multiStatusViewUtils.showLoading()
     }
 
     override fun dismissLoading() {
-        mLayoutStatusView?.apply {
-            if (!isShow()) {
-                showContent()
-            }
-        }
-
-        if (mIsRefresh) {
-            refreshLayout.finishRefresh()
-        } else {
-            refreshLayout.finishLoadMore()
-        }
     }
 
     override fun onDestroy() {

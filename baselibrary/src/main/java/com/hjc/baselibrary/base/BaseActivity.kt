@@ -23,7 +23,7 @@ abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCal
     /**
      * 多种状态的 View 的切换
      */
-    protected var mLayoutStatusView: MultipleStatusView? = null
+    protected var mMultiStatusView: MultipleStatusView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +35,7 @@ abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCal
     }
 
     private fun initListener() {
-        mLayoutStatusView?.setOnClickListener(mRetryClickListener)
+        mMultiStatusView?.setOnClickListener(mRetryClickListener)
     }
 
     open val mRetryClickListener: View.OnClickListener = View.OnClickListener {
