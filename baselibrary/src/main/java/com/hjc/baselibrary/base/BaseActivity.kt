@@ -3,6 +3,7 @@ package com.hjc.baselibrary.base
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.os.Parcelable
 import android.support.annotation.NonNull
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -10,6 +11,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
 import com.classic.common.MultipleStatusView
+import com.hjc.baselibrary.app.Const
 import com.orhanobut.logger.Logger
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
@@ -64,8 +66,23 @@ abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCal
      */
     abstract fun start()
 
+    /**
+     * 跳转
+     */
     fun <T> launchActivity(cls: Class<T>) {
         val intent = Intent(this, cls)
+        startActivity(intent)
+    }
+
+    fun <T> launchActivityWithString(cls: Class<T>, data: String) {
+        val intent = Intent(this, cls)
+        intent.putExtra(Const.EXTRA_DATA, data)
+        startActivity(intent)
+    }
+
+    fun <T> launchActivityWithData(cls: Class<T>, data: Parcelable) {
+        val intent = Intent(this, cls)
+        intent.putExtra(Const.EXTRA_DATA, data)
         startActivity(intent)
     }
 

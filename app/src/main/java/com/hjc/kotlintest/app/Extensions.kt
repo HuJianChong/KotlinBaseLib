@@ -1,4 +1,4 @@
-package com.hjc.kotlintest.common
+package com.hjc.kotlintest.app
 
 import com.classic.common.MultipleStatusView
 

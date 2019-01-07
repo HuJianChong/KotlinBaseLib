@@ -1,8 +1,9 @@
-package com.hjc.kotlintest
+package com.hjc.kotlintest.app
 
 import android.content.Context
 import com.hjc.baselibrary.BaseApplication
 import com.hjc.baselibrary.utils.StringUtils
+import com.hjc.kotlintest.R
 import com.orhanobut.logger.Logger
 import com.scwang.smartrefresh.layout.SmartRefreshLayout
 import com.scwang.smartrefresh.layout.api.RefreshLayout

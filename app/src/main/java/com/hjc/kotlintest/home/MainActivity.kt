@@ -8,6 +8,7 @@ import com.hjc.baselibrary.base.BaseActivity
 import com.hjc.baselibrary.utils.StatusBarUtil
 import com.hjc.kotlintest.R
 import com.hjc.kotlintest.bean.ProjectBean
+import com.hjc.kotlintest.common.WebViewActivity
 import com.hjc.kotlintest.home.adapter.ProjectAdapter
 import com.hjc.kotlintest.home.mvp.contract.ProjectContract
 import com.hjc.kotlintest.home.mvp.presenter.ProjectPresenter
@@ -37,7 +38,7 @@ class MainActivity : BaseActivity(), ProjectContract.View {
         recyclerView.adapter = mAdapter
         recyclerView.addItemDecoration(DividerUtils.getDefaultDivider(this))
         mAdapter.setOnItemClickListener { baseQuickAdapter: BaseQuickAdapter<Any, BaseViewHolder>, view: View, i: Int ->
-            launchActivity(DetailActivity::class.java)
+            launchActivityWithString(WebViewActivity::class.java, mAdapter.data[i].url)
         }
 
         refreshLayout.setOnRefreshListener {

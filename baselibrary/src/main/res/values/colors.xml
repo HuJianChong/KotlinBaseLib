@@ -14,7 +14,7 @@
     <color name="app_theme_8">#AC8FEF</color> <!-- Lavender -->
     <color name="app_theme_9">#EE85C1</color> <!-- Pink Rose -->
 
-    <color name="translucent">#00000000</color>
+    <color name="transparent">#00000000</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="blue">#87CEEB</color>

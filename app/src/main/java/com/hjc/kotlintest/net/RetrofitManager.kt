@@ -1,7 +1,7 @@
 package com.hjc.kotlintest.net
 
 import com.hjc.baselibrary.net.BaseRetrofitManager
-import com.hjc.kotlintest.common.Const
+import com.hjc.kotlintest.app.Const
 
 /**
  * @author hjc
