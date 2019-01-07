@@ -1,6 +1,9 @@
 package com.hjc.kotlintest.home
 
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
+import com.chad.library.adapter.base.BaseQuickAdapter
+import com.chad.library.adapter.base.BaseViewHolder
 import com.hjc.baselibrary.base.BaseActivity
 import com.hjc.baselibrary.utils.StatusBarUtil
 import com.hjc.kotlintest.R
@@ -33,6 +36,9 @@ class MainActivity : BaseActivity(), ProjectContract.View {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = mAdapter
         recyclerView.addItemDecoration(DividerUtils.getDefaultDivider(this))
+        mAdapter.setOnItemClickListener { baseQuickAdapter: BaseQuickAdapter<Any, BaseViewHolder>, view: View, i: Int ->
+            launchActivity(DetailActivity::class.java)
+        }
 
         refreshLayout.setOnRefreshListener {
             mIsRefresh = true

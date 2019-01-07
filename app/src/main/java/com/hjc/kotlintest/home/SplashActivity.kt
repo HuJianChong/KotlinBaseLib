@@ -2,7 +2,6 @@ package com.hjc.kotlintest.home
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
 import android.view.animation.Animation.AnimationListener
@@ -53,8 +52,7 @@ class SplashActivity : BaseActivity() {
 
 
     fun redirectTo() {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        launchActivity(MainActivity::class.java)
         finish()
     }
 

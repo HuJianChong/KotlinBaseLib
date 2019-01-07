@@ -1,7 +1,6 @@
 package com.hjc.baselibrary.utils
 
-import android.content.Context
-import android.util.DisplayMetrics
+import com.hjc.baselibrary.BaseApplication
 import kotlin.properties.Delegates
 
 /**
@@ -10,14 +9,13 @@ import kotlin.properties.Delegates
  */
 class DisplayUtils private constructor() {
     companion object {
-        private lateinit var displayMetrics: DisplayMetrics
         var screenWidth: Int by Delegates.notNull()
         var screenHeight: Int by Delegates.notNull()
         var screenDpi: Int by Delegates.notNull()
         var screenDensity: Float by Delegates.notNull()
 
-        fun init(context: Context) {
-            displayMetrics = context.resources.displayMetrics
+        init {
+            val displayMetrics = BaseApplication.context.resources.displayMetrics
             screenWidth = displayMetrics.widthPixels
             screenHeight = displayMetrics.heightPixels
             screenDpi = displayMetrics.densityDpi

@@ -26,6 +26,9 @@
         <activity
             android:name="com.hjc.kotlintest.home.MainActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hjc.kotlintest.home.DetailActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

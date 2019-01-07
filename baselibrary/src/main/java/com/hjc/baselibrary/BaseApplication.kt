@@ -30,8 +30,6 @@ open class BaseApplication : Application() {
      * 初始化配置
      */
     protected open fun initConfig() {
-        //初始化显示Util
-        DisplayUtils.init(this)
         //初始化Logger日志打印
         val formatStrategy = PrettyFormatStrategy.newBuilder()
             .showThreadInfo(false)  // 隐藏线程信息 默认：显示

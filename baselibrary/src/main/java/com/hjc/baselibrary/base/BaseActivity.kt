@@ -1,6 +1,7 @@
 package com.hjc.baselibrary.base
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.annotation.NonNull
 import android.support.v7.app.AppCompatActivity
@@ -63,6 +64,15 @@ abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCal
      */
     abstract fun start()
 
+    fun <T> launchActivity(cls: Class<T>) {
+        val intent = Intent(this, cls)
+        startActivity(intent)
+    }
+
+    fun <T> launchActivityForResult(cls: Class<T>, requestCode: Int) {
+        val intent = Intent(this, cls)
+        startActivityForResult(intent, requestCode)
+    }
 
     /**
      * 打卡软键盘
