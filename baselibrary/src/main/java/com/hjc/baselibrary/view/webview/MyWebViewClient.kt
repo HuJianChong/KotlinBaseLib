@@ -12,7 +12,7 @@ import com.hjc.baselibrary.utils.UIUtils
 
 
 /**
- * Created by ZHT on 2017/4/20.
+ * Created by hjc
  * 在WebViewClient中会监听网页连接
  */
 class MyWebViewClient(private val mView: WebViewInterface.View) : WebViewClient() {
