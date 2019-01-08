@@ -2,7 +2,6 @@ package com.hjc.baselibrary
 
 import android.app.Application
 import android.content.Context
-import com.hjc.baselibrary.utils.DisplayUtils
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy

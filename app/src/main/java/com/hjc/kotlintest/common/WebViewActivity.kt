@@ -22,7 +22,7 @@ class WebViewActivity : BaseWebViewActivity() {
 
     override fun start() {
         mUrl?.let {
-            webView.loadUrl(mUrl)
+            mWebView.loadUrl(mUrl)
         }
     }
 
