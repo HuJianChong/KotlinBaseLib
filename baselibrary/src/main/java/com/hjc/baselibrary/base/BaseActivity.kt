@@ -74,9 +74,11 @@ abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCal
         startActivity(intent)
     }
 
-    fun <T> launchActivityWithString(cls: Class<T>, data: String) {
+    fun <T> launchActivityWithString(cls: Class<T>, data: String?) {
         val intent = Intent(this, cls)
-        intent.putExtra(Const.EXTRA_DATA, data)
+        if (data != null) {
+            intent.putExtra(Const.EXTRA_DATA, data)
+        }
         startActivity(intent)
     }
 

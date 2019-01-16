@@ -9,11 +9,13 @@ import com.hjc.baselibrary.utils.StatusBarUtil
 import com.hjc.kotlintest.R
 import com.hjc.kotlintest.bean.ProjectBean
 import com.hjc.kotlintest.common.WebViewActivity
+import com.hjc.kotlintest.database.AppDatabase
 import com.hjc.kotlintest.home.adapter.ProjectAdapter
 import com.hjc.kotlintest.home.mvp.contract.ProjectContract
 import com.hjc.kotlintest.home.mvp.presenter.ProjectPresenter
 import com.hjc.kotlintest.utils.DividerUtils
 import com.hjc.kotlintest.utils.MultiStatusViewUtils
+import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : BaseActivity(), ProjectContract.View {
@@ -39,6 +41,8 @@ class MainActivity : BaseActivity(), ProjectContract.View {
         recyclerView.addItemDecoration(DividerUtils.getDefaultDivider(this))
         mAdapter.setOnItemClickListener { baseQuickAdapter: BaseQuickAdapter<Any, BaseViewHolder>, view: View, i: Int ->
             launchActivityWithString(WebViewActivity::class.java, mAdapter.data[i].url)
+            AppDatabase.getInstance(this).projectDao().insert(mAdapter.data[i])
+            Logger.d(AppDatabase.getInstance(this).projectDao().count)
         }
 
         refreshLayout.setOnRefreshListener {
