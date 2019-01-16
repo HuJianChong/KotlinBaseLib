@@ -6,6 +6,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
 import com.hjc.baselibrary.base.BaseActivity
 import com.hjc.baselibrary.utils.StatusBarUtil
+import com.hjc.baselibrary.utils.ToastUtils
 import com.hjc.kotlintest.R
 import com.hjc.kotlintest.bean.ProjectBean
 import com.hjc.kotlintest.common.WebViewActivity
@@ -33,6 +34,10 @@ class MainActivity : BaseActivity(), ProjectContract.View {
         mPresenter.attachView(this)
         StatusBarUtil.darkMode(this)
         StatusBarUtil.setPaddingSmart(this, statusView)
+
+        actionBtn.setOnClickListener {
+            ToastUtils.show("历史记录")
+        }
 
         mMultiStatusView = statusView
         multiStatusViewUtils = MultiStatusViewUtils(mMultiStatusView!!)
