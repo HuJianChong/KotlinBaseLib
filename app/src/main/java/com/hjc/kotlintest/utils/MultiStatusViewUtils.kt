@@ -12,7 +12,7 @@ class MultiStatusViewUtils(private val multipleStatusView: MultipleStatusView) {
 
     var isShownContent = false
 
-    fun <T> handleResult(data: ArrayList<T>?, isRefresh: Boolean, refreshLayout: SmartRefreshLayout) {
+    fun <T> handleResult(data: List<T>?, isRefresh: Boolean, refreshLayout: SmartRefreshLayout) {
         if (isRefresh) {
             refreshLayout.finishRefresh()
         } else {

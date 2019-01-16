@@ -4,40 +4,33 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.BaseViewHolder
-import com.hjc.baselibrary.base.BaseActivity
+import com.hjc.baselibrary.base.BaseTitleActivity
 import com.hjc.baselibrary.utils.StatusBarUtil
-import com.hjc.baselibrary.utils.ToastUtils
 import com.hjc.kotlintest.R
 import com.hjc.kotlintest.bean.ProjectBean
 import com.hjc.kotlintest.common.WebViewActivity
 import com.hjc.kotlintest.database.AppDatabase
 import com.hjc.kotlintest.home.adapter.ProjectAdapter
-import com.hjc.kotlintest.home.mvp.contract.ProjectContract
-import com.hjc.kotlintest.home.mvp.presenter.ProjectPresenter
+import com.hjc.kotlintest.home.mvp.contract.HistoryContract
+import com.hjc.kotlintest.home.mvp.presenter.HistoryPresenter
 import com.hjc.kotlintest.utils.DividerUtils
 import com.hjc.kotlintest.utils.MultiStatusViewUtils
 import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.main_activity.*
 
-class MainActivity : BaseActivity(), ProjectContract.View {
-    private val mPresenter by lazy { ProjectPresenter() }
+class HistoryActivity : BaseTitleActivity(), HistoryContract.View {
+    private val mPresenter by lazy { HistoryPresenter() }
     private val mAdapter by lazy { ProjectAdapter(R.layout.main_project_item, ArrayList()) }
-    private var mIsRefresh = true
     private lateinit var multiStatusViewUtils: MultiStatusViewUtils
 
-    override fun layoutId(): Int = R.layout.main_activity
+    override fun layoutId(): Int = R.layout.history_activity
 
     override fun initData() {
     }
 
     override fun initView() {
         mPresenter.attachView(this)
-        StatusBarUtil.darkMode(this)
-        StatusBarUtil.setPaddingSmart(this, statusView)
-
-        actionBtn.setOnClickListener {
-            launchActivity(HistoryActivity::class.java)
-        }
+        setTitleText("浏览记录")
 
         mMultiStatusView = statusView
         multiStatusViewUtils = MultiStatusViewUtils(mMultiStatusView!!)
@@ -51,26 +44,20 @@ class MainActivity : BaseActivity(), ProjectContract.View {
         }
 
         refreshLayout.setOnRefreshListener {
-            mIsRefresh = true
             start()
         }
         refreshLayout.setOnLoadMoreListener {
-            mIsRefresh = false
             start()
         }
     }
 
     override fun start() {
-        mPresenter.getProjectList()
+        mPresenter.getHistoryList()
     }
 
-    override fun showProjectList(projectBean: ProjectBean) {
-        multiStatusViewUtils.handleResult(projectBean.data, mIsRefresh, refreshLayout)
-        if (mIsRefresh) {
-            mAdapter.setNewData(projectBean.data)
-        } else if (projectBean.data != null) {
-            mAdapter.addData(projectBean.data)
-        }
+    override fun showHistoryList(datas: List<ProjectBean.Data>) {
+        multiStatusViewUtils.handleResult(datas, true, refreshLayout)
+        mAdapter.setNewData(datas)
     }
 
     override fun showError(errorMsg: String, errorCode: Int) {

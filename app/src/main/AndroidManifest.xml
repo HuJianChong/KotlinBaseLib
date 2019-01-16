@@ -32,6 +32,9 @@
         <activity
             android:name="com.hjc.kotlintest.common.WebViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.hjc.kotlintest.home.HistoryActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

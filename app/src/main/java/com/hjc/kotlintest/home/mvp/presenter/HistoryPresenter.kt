@@ -2,30 +2,32 @@ package com.hjc.kotlintest.home.mvp.presenter
 
 import com.hazz.kotlinmvp.net.exception.ExceptionHandle
 import com.hjc.baselibrary.base.BasePresenter
+import com.hjc.kotlintest.home.mvp.contract.HistoryContract
 import com.hjc.kotlintest.home.mvp.contract.ProjectContract
+import com.hjc.kotlintest.home.mvp.model.HistoryModel
 import com.hjc.kotlintest.home.mvp.model.ProjectModel
 
 /**
  * Created by hjc
- * desc:项目的 Presenter
+ * desc:history Presenter
  */
-class ProjectPresenter : BasePresenter<ProjectContract.View>(), ProjectContract.Presenter {
+class HistoryPresenter : BasePresenter<HistoryContract.View>(), HistoryContract.Presenter {
 
-    private val projectModel: ProjectModel by lazy {
-        ProjectModel()
+    private val historyModel: HistoryModel by lazy {
+        HistoryModel()
     }
 
     /**
      * 获取项目
      */
-    override fun getProjectList() {
+    override fun getHistoryList() {
         checkViewAttached()
         mRootView?.showLoading()
-        val disposable = projectModel.getProjectData()
-                .subscribe({ projectList ->
+        val disposable = historyModel.getHistoryData()
+                .subscribe({ historyList ->
                     mRootView?.apply {
                         dismissLoading()
-                        showProjectList(projectList)
+                        showHistoryList(historyList)
                     }
                 }, { t ->
                     mRootView?.apply {
